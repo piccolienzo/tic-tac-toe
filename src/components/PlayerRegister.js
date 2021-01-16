@@ -1,5 +1,6 @@
 import React from "react";
 import PlayerNameInput from "./PlayerNameInput";
+import "./styles/PlayerRegister.css";
 
 export default class PlayerRegister extends React.Component {
 	constructor(props) {
@@ -31,11 +32,7 @@ export default class PlayerRegister extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<form
-					onSubmit={this.onSubmit}
-					style={{ height: "100vh", width: "100vw" }}
-				>
-					Player 1:
+				<form onSubmit={this.onSubmit} className="FormRegister">
 					<div>
 						<PlayerNameInput
 							playerName={this.state.player1}
@@ -43,7 +40,7 @@ export default class PlayerRegister extends React.Component {
 							onPlayerNameChange={this.onPlayerNameChange}
 						/>
 					</div>
-					Player 2:
+
 					<div>
 						<PlayerNameInput
 							playerName={this.state.player2}

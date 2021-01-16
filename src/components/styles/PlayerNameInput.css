@@ -1,0 +1,24 @@
+.Input {
+	background-color: #ff006e;
+	color: #ffffff;
+	border-color: #ff006e;
+	width: 30vw;
+	min-width: 40vmax;
+	height: 10vh;
+	min-height: 2vmin;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #ff006e;
+	font-size: 2em;
+	border-radius: 0.5em;
+}
+.Label {
+	color: #ff006e;
+	font-weight: bold;
+	width: 33vw;
+	height: 20vh;
+	text-align: center;
+	vertical-align: middle;
+
+	font-size: 2em;
+}

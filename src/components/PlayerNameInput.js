@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./styles/PlayerNameInput.css";
 export default class PlayerNameInput extends React.Component {
 	constructor(props) {
 		super(props);
@@ -16,11 +16,19 @@ export default class PlayerNameInput extends React.Component {
 
 	render() {
 		return (
-			<input
-				type="text"
-				value={this.state.playerName}
-				onChange={this.onChange}
-			></input>
+			<React.Fragment>
+				<label className="Label" htmlFor={this.props.player}>
+					{this.props.player.toUpperCase()}
+				</label>
+				<br />
+				<input
+					className="Input"
+					id={this.props.player}
+					type="text"
+					value={this.state.playerName}
+					onChange={this.onChange}
+				></input>
+			</React.Fragment>
 		);
 	}
 }

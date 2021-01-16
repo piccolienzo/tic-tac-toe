@@ -2,20 +2,42 @@
 	height: 20vh;
 	width: 100vw;
 	display: flex;
-	font-size: 2em;
+	font-size: 2.2em;
 	justify-content: center;
 
 	align-items: center;
 }
 
 .PlayerInfoWin {
-	background-color: lawngreen;
+	background-color: #ffbe0b;
+	font-weight: bold;
+	font-size: 5em;
+
+	width: 90vw;
+	height: 70vh;
+	padding-left: 5vh;
+	padding-right: 5vh;
+}
+.PlayerInfoLose {
+	background-color: gray;
+	font-weight: bold;
+	font-size: 3em;
+	border: 0;
+	margin: 0;
+	width: 90vw;
+	height: 30vh;
+	padding-left: 5vh;
+	padding-right: 5vh;
 }
 
 .PlayerInfoTurn {
-	background-color: lightseagreen;
+	background-color: #ff006e;
+	color: white;
+	font-weight: bold;
+	font-size: 2.5em;
 }
 
 .PlayerInfoNotTurn {
-	background-color: gray;
+	background-color: #8338ec;
+	color: white;
 }

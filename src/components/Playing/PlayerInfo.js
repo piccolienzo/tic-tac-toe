@@ -9,6 +9,12 @@ export default class PlayerInfo extends React.Component {
 					{this.props.player + " WON"}
 				</div>
 			);
+		} else if (this.props.lose) {
+			return (
+				<div className="PlayerInfo PlayerInfoLose ">
+					{this.props.player + " LOSE"}
+				</div>
+			);
 		} else {
 			if (this.props.turn) {
 				return (

@@ -1,0 +1,23 @@
+.FormRegister {
+	height: 100vh;
+	width: 100vw;
+	padding-top: 15vh;
+}
+.FormRegister button {
+	background-color: #ff006e;
+	color: white;
+	width: 30vw;
+	min-width: 40vmax;
+	height: 12vh;
+	min-height: 2vmin;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid white;
+	font-size: 2em;
+	margin-top: 1em;
+	border-radius: 0.9em;
+	font-weight: bold;
+}
+.FormRegister div {
+	padding-top: 1em;
+}

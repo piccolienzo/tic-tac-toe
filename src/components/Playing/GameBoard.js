@@ -43,6 +43,7 @@ export default class GameBoard extends React.Component {
 						char="O"
 						score={this.state.p1Score}
 						win={this.state.winner === "O"}
+						lose={this.state.winner === "X"}
 					/>
 				</div>
 
@@ -66,6 +67,7 @@ export default class GameBoard extends React.Component {
 						char="X"
 						score={this.state.p2Score}
 						win={this.state.winner === "X"}
+						lose={this.state.winner === "O"}
 					/>
 				</div>
 			</React.Fragment>
