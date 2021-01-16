@@ -1,0 +1,18 @@
+.PlayTable {
+	height: 60vh;
+	width: 100vw;
+	border-collapse: collapse;
+
+	border: none;
+}
+.PlayTable tr {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+.PlayTable td {
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-collapse: collapse;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import PlayButton from "./PlayButton";
+import "../styles/PlayTable.css";
 
 export default class PlayTable extends React.Component {
 	constructor(props) {
@@ -72,15 +73,16 @@ export default class PlayTable extends React.Component {
 			}
 		}
 		if (havewinner) {
-			console.log(havewinner);
 			this.props.haveWinner(char);
+		} else {
+			this.props.toggleTurn();
 		}
 	};
 
 	render() {
 		return (
 			<React.Fragment>
-				<table>
+				<table className="PlayTable">
 					<tbody>
 						<tr>
 							<td>
@@ -88,7 +90,6 @@ export default class PlayTable extends React.Component {
 									c={1}
 									r={1}
 									turn={this.props.turn}
-									toggleTurn={this.props.toggleTurn}
 									updateProgress={this.updateProgress}
 								/>
 							</td>
@@ -97,7 +98,6 @@ export default class PlayTable extends React.Component {
 									c={2}
 									r={1}
 									turn={this.props.turn}
-									toggleTurn={this.props.toggleTurn}
 									updateProgress={this.updateProgress}
 								/>
 							</td>
@@ -106,7 +106,6 @@ export default class PlayTable extends React.Component {
 									c={3}
 									r={1}
 									turn={this.props.turn}
-									toggleTurn={this.props.toggleTurn}
 									updateProgress={this.updateProgress}
 								/>
 							</td>
@@ -117,7 +116,6 @@ export default class PlayTable extends React.Component {
 									c={1}
 									r={2}
 									turn={this.props.turn}
-									toggleTurn={this.props.toggleTurn}
 									updateProgress={this.updateProgress}
 								/>
 							</td>
@@ -126,7 +124,6 @@ export default class PlayTable extends React.Component {
 									c={2}
 									r={2}
 									turn={this.props.turn}
-									toggleTurn={this.props.toggleTurn}
 									updateProgress={this.updateProgress}
 								/>
 							</td>
@@ -135,7 +132,6 @@ export default class PlayTable extends React.Component {
 									c={3}
 									r={2}
 									turn={this.props.turn}
-									toggleTurn={this.props.toggleTurn}
 									updateProgress={this.updateProgress}
 								/>
 							</td>
@@ -146,7 +142,6 @@ export default class PlayTable extends React.Component {
 									c={1}
 									r={3}
 									turn={this.props.turn}
-									toggleTurn={this.props.toggleTurn}
 									updateProgress={this.updateProgress}
 								/>
 							</td>
@@ -155,7 +150,6 @@ export default class PlayTable extends React.Component {
 									c={2}
 									r={3}
 									turn={this.props.turn}
-									toggleTurn={this.props.toggleTurn}
 									updateProgress={this.updateProgress}
 								/>
 							</td>
@@ -164,7 +158,6 @@ export default class PlayTable extends React.Component {
 									c={3}
 									r={3}
 									turn={this.props.turn}
-									toggleTurn={this.props.toggleTurn}
 									updateProgress={this.updateProgress}
 								/>
 							</td>

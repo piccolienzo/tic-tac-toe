@@ -15,7 +15,6 @@ export default class PlayerRegister extends React.Component {
 		this.setState({
 			[player]: name,
 		});
-		console.log(player, name);
 	};
 
 	onSubmit = (e) => {
@@ -26,25 +25,32 @@ export default class PlayerRegister extends React.Component {
 		if (this.state.player2 === "") {
 			this.setState = { player2: "player2" };
 		}
-		console.log(this.state.player1 + this.state.player2);
+
 		this.props.onSubmitNames(this.state.player1, this.state.player2);
 	};
 	render() {
 		return (
 			<React.Fragment>
-				<form onSubmit={this.onSubmit}>
+				<form
+					onSubmit={this.onSubmit}
+					style={{ height: "100vh", width: "100vw" }}
+				>
 					Player 1:
-					<PlayerNameInput
-						playerName={this.state.player1}
-						player="player1"
-						onPlayerNameChange={this.onPlayerNameChange}
-					/>
+					<div>
+						<PlayerNameInput
+							playerName={this.state.player1}
+							player="player1"
+							onPlayerNameChange={this.onPlayerNameChange}
+						/>
+					</div>
 					Player 2:
-					<PlayerNameInput
-						playerName={this.state.player2}
-						player="player2"
-						onPlayerNameChange={this.onPlayerNameChange}
-					/>
+					<div>
+						<PlayerNameInput
+							playerName={this.state.player2}
+							player="player2"
+							onPlayerNameChange={this.onPlayerNameChange}
+						/>
+					</div>
 					<button type="submit" onClick={this.onSubmit}>
 						Play
 					</button>

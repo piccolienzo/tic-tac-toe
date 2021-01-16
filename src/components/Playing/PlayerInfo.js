@@ -1,23 +1,24 @@
 import React from "react";
+import "../styles/PlayerInfo.css";
 
 export default class PlayerInfo extends React.Component {
 	render() {
 		if (this.props.win) {
 			return (
-				<div style={{ backgroundColor: "red" }}>
+				<div className="PlayerInfo PlayerInfoWin ">
 					{this.props.player + " WON"}
 				</div>
 			);
 		} else {
 			if (this.props.turn) {
 				return (
-					<div style={{ backgroundColor: "greenyellow" }}>
+					<div className="PlayerInfo PlayerInfoTurn ">
 						{this.props.player + "'s turn ( " + this.props.char + " )"}
 					</div>
 				);
 			} else {
 				return (
-					<div style={{ backgroundColor: "gray" }}>
+					<div className="PlayerInfo PlayerInfoNotTurn ">
 						{this.props.player + "( " + this.props.char + " )"}
 					</div>
 				);

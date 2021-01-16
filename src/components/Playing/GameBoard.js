@@ -32,31 +32,42 @@ export default class GameBoard extends React.Component {
 		this.setState(() => ({
 			winner: winner,
 		}));
-		this.toggleTurn();
 	};
 	render() {
 		return (
 			<React.Fragment>
-				<PlayerInfo
-					player={this.props.player1}
-					turn={this.state.turn === "O"}
-					char="O"
-					score={this.state.p1Score}
-					win={this.state.winner === "O"}
-				></PlayerInfo>
-				<PlayTable
-					turn={this.state.turn}
-					toggleTurn={this.toggleTurn}
-					haveWinner={this.haveWinner}
-					win={this.state.winner === "O" || this.state.winner === "X"}
-				></PlayTable>
-				<PlayerInfo
-					player={this.props.player2}
-					turn={this.state.turn === "X"}
-					char="X"
-					score={this.state.p2Score}
-					win={this.state.winner === "X"}
-				></PlayerInfo>
+				<div>
+					<PlayerInfo
+						player={this.props.player1}
+						turn={this.state.turn === "O"}
+						char="O"
+						score={this.state.p1Score}
+						win={this.state.winner === "O"}
+					/>
+				</div>
+
+				{this.state.winner === "X" || this.state.winner === "O" ? (
+					<div></div>
+				) : (
+					<div>
+						<PlayTable
+							turn={this.state.turn}
+							toggleTurn={this.toggleTurn}
+							haveWinner={this.haveWinner}
+							win={this.state.winner === "O" || this.state.winner === "X"}
+						/>
+					</div>
+				)}
+
+				<div>
+					<PlayerInfo
+						player={this.props.player2}
+						turn={this.state.turn === "X"}
+						char="X"
+						score={this.state.p2Score}
+						win={this.state.winner === "X"}
+					/>
+				</div>
 			</React.Fragment>
 		);
 	}

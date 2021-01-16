@@ -1,0 +1,21 @@
+.PlayerInfo {
+	height: 20vh;
+	width: 100vw;
+	display: flex;
+	font-size: 2em;
+	justify-content: center;
+
+	align-items: center;
+}
+
+.PlayerInfoWin {
+	background-color: lawngreen;
+}
+
+.PlayerInfoTurn {
+	background-color: lightseagreen;
+}
+
+.PlayerInfoNotTurn {
+	background-color: gray;
+}

@@ -1,10 +1,11 @@
 import React from "react";
+import "../styles/PlayButton.css";
 
 export default class PlayButton extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: "G",
+			value: "",
 		};
 	}
 
@@ -14,25 +15,12 @@ export default class PlayButton extends React.Component {
 			value: this.props.turn,
 		}));
 		this.props.updateProgress(this.props.r, this.props.c, this.props.turn);
-
-		this.props.toggleTurn();
 	};
 
 	render() {
-		if (this.state.value === "G") {
+		if (this.state.value === "") {
 			return (
-				<button
-					style={{
-						backgroundColor: "black",
-						color: "black",
-						borderColor: "black",
-						width: "30px",
-						height: "30px",
-						textAlign: "center",
-						verticalAlign: "middle",
-					}}
-					onClick={this.onClick}
-				>
+				<button className="EnabledPlayButton" onClick={this.onClick}>
 					{this.state.value}
 				</button>
 			);
@@ -40,15 +28,7 @@ export default class PlayButton extends React.Component {
 			return (
 				<button
 					disabled={true}
-					style={{
-						backgroundColor: "black",
-						color: "white",
-						borderColor: "black",
-						width: "30px",
-						height: "30px",
-						textAlign: "center",
-						verticalAlign: "middle",
-					}}
+					className="DisabledPlayButton"
 					onClick={this.onClick}
 				>
 					{this.state.value}

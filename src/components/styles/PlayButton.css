@@ -1,0 +1,23 @@
+.EnabledPlayButton {
+	background-color: black;
+	color: black;
+	border-color: black;
+	width: 33vw;
+	height: 20vh;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid white;
+	font-size: 2em;
+}
+
+.DisabledPlayButton {
+	background-color: black;
+	color: white;
+	border-color: black;
+	width: 33vw;
+	height: 20vh;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid white;
+	font-size: 2em;
+}
