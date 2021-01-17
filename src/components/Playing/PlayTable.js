@@ -13,6 +13,7 @@ export default class PlayTable extends React.Component {
 			],
 		};
 		this.updateProgress = this.updateProgress.bind(this);
+		this.verifyMoves = this.verifyMoves.bind(this);
 	}
 
 	updateProgress = (row, col, char) => {
@@ -25,6 +26,19 @@ export default class PlayTable extends React.Component {
 		}));
 
 		this.verifyWinner(char);
+	};
+
+	verifyMoves = () => {
+		let progress = this.state.gameProgress.slice();
+		let existmoves = true;
+		for (let row = 0; row < 3; row++) {
+			for (let col = 0; col < 3; col++) {
+				if (progress[row][col] === "") {
+					existmoves = false;
+				}
+			}
+		}
+		return existmoves;
 	};
 
 	verifyWinner = (char) => {
@@ -50,7 +64,7 @@ export default class PlayTable extends React.Component {
 			for (let col = 0; col < 3; col++) {
 				if (progress[row][col] === char) {
 					cont++;
-					console.log(progress[row][col]);
+
 					if (cont === 3) {
 						havewinner = true;
 
@@ -64,7 +78,7 @@ export default class PlayTable extends React.Component {
 			for (let col = 0; col < 3; col++) {
 				if (progress[col][row] === char) {
 					cont++;
-					console.log(progress[row][col]);
+
 					if (cont === 3) {
 						havewinner = true;
 						break;
@@ -74,6 +88,8 @@ export default class PlayTable extends React.Component {
 		}
 		if (havewinner) {
 			this.props.haveWinner(char);
+		} else if (this.verifyMoves()) {
+			this.props.makeDraw();
 		} else {
 			this.props.toggleTurn();
 		}

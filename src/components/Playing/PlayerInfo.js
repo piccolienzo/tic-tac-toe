@@ -12,7 +12,17 @@ export default class PlayerInfo extends React.Component {
 	};
 
 	render() {
-		if (this.props.win) {
+		if (this.props.draw === true) {
+			return (
+				<div className="PlayerInfo PlayerInfoDraw " onClick={this.restart}>
+					<p>
+						{"DRAW"}
+
+						<h6 style={{ fontSize: "0.15em" }}>Clic to reset</h6>
+					</p>
+				</div>
+			);
+		} else if (this.props.win) {
 			return (
 				<div>
 					<div className="PlayerInfo PlayerInfoWin " onClick={this.restart}>

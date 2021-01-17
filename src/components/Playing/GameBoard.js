@@ -40,52 +40,83 @@ export default class GameBoard extends React.Component {
 	};
 
 	restart = () => {
-		this.setState({
+		this.setState(() => ({
 			turn: turns.player1,
 			p1Score: 0,
 			p2Score: 0,
 			winner: "",
-		});
-		console.log("restart");
+		}));
+	};
+
+	makeDraw = () => {
+		setTimeout(
+			() =>
+				this.setState(() => ({
+					winner: "D",
+				})),
+			1000
+		);
 	};
 	render() {
 		return (
 			<React.Fragment>
 				<div>
-					<PlayerInfo
-						restart={this.restart}
-						player={this.props.player1}
-						turn={this.state.turn === "O"}
-						char="O"
-						score={this.state.p1Score}
-						win={this.state.winner === "O"}
-						lose={this.state.winner === "X"}
-					/>
+					{this.state.winner === "D" ? (
+						<PlayerInfo
+							restart={this.restart}
+							draw={true}
+							player={this.props.player1}
+							turn={this.state.turn === "O"}
+							char="O"
+							score={this.state.p1Score}
+							win={this.state.winner === "O"}
+							lose={this.state.winner === "X"}
+						/>
+					) : (
+						<PlayerInfo
+							draw={false}
+							restart={this.restart}
+							player={this.props.player1}
+							turn={this.state.turn === "O"}
+							char="O"
+							score={this.state.p1Score}
+							win={this.state.winner === "O"}
+							lose={this.state.winner === "X"}
+						/>
+					)}
 				</div>
 
 				{this.state.winner === "X" || this.state.winner === "O" ? (
-					<div></div>
+					<span></span>
+				) : this.state.winner === "D" ? (
+					<span></span>
 				) : (
 					<div>
 						<PlayTable
 							turn={this.state.turn}
 							toggleTurn={this.toggleTurn}
 							haveWinner={this.haveWinner}
+							makeDraw={this.makeDraw}
 							win={this.state.winner === "O" || this.state.winner === "X"}
 						/>
 					</div>
 				)}
 
 				<div>
-					<PlayerInfo
-						restart={this.restart}
-						player={this.props.player2}
-						turn={this.state.turn === "X"}
-						char="X"
-						score={this.state.p2Score}
-						win={this.state.winner === "X"}
-						lose={this.state.winner === "O"}
-					/>
+					{this.state.winner === "D" ? (
+						<span></span>
+					) : (
+						<PlayerInfo
+							draw={false}
+							restart={this.restart}
+							player={this.props.player2}
+							turn={this.state.turn === "X"}
+							char="X"
+							score={this.state.p2Score}
+							win={this.state.winner === "X"}
+							lose={this.state.winner === "O"}
+						/>
+					)}
 				</div>
 			</React.Fragment>
 		);
