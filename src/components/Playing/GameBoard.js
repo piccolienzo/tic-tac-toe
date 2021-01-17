@@ -14,6 +14,7 @@ export default class GameBoard extends React.Component {
 		this.state = { turn: turns.player1, p1Score: 0, p2Score: 0, winner: "" };
 		this.toggleTurn = this.toggleTurn.bind(this);
 		this.haveWinner = this.haveWinner.bind(this);
+		this.restart = this.restart.bind(this);
 	}
 
 	toggleTurn = () => {
@@ -29,15 +30,30 @@ export default class GameBoard extends React.Component {
 	};
 
 	haveWinner = (winner) => {
-		this.setState(() => ({
-			winner: winner,
-		}));
+		setTimeout(
+			() =>
+				this.setState(() => ({
+					winner: winner,
+				})),
+			1000
+		);
+	};
+
+	restart = () => {
+		this.setState({
+			turn: turns.player1,
+			p1Score: 0,
+			p2Score: 0,
+			winner: "",
+		});
+		console.log("restart");
 	};
 	render() {
 		return (
 			<React.Fragment>
 				<div>
 					<PlayerInfo
+						restart={this.restart}
 						player={this.props.player1}
 						turn={this.state.turn === "O"}
 						char="O"
@@ -62,6 +78,7 @@ export default class GameBoard extends React.Component {
 
 				<div>
 					<PlayerInfo
+						restart={this.restart}
 						player={this.props.player2}
 						turn={this.state.turn === "X"}
 						char="X"
